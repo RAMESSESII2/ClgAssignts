@@ -85,3 +85,14 @@ Roll   |   Department
  34    | William Shakespeare |    Literature   |   Drama
  39    | William Wordsworth  |    Literature   |   Poetry
 
+21. grep "I am a boy" abc.txt
+      Displays entire paragraph
+    grep -i  -n "I am a boy" abc.txt
+      Also ignores case and displays paragraph number.
+    grep --help has too many arguments.
+22. sort -n  num.txt
+    -878
+    -7
+    2
+    598
+    5656
