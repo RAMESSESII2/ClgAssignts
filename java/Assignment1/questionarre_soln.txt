@@ -1,0 +1,29 @@
+1)  Composition and Aggregation are the two forms of association.
+Association:-
+    1. It represents Has-A relationship.
+    2. It is a unidirectional association i.e. a one way relationship. For example, department can have students but vice versa is not       
+       possible and thus unidirectional in nature.
+    3. In Aggregation, both the entries can survive individually    
+        which means ending one entity will not effect the other entity
+    4. Composition is a strong Association
+
+Aggregation:-
+    1. It represents part-of relationship.
+    2. In composition, both the entities are dependent on each other.
+    3. When there is a composition between two entities, the composed object cannot exist without the other entity.
+    4. Aggregation is a weak Association.
+
+2)Yes, whenever an object is created constructor is called first, if a constructor is not defined then default       
+    constructor is called.
+
+3) Default Constructor:
+    A constructor that has no parameter is known as default constructor. If we don’t define a constructor in a class, then compiler creates default constructor(with no arguments) for the class. And if we write a constructor with arguments or no-arguments then the compiler does not create a default constructor.
+Default constructor provides the default values to the object like 0, null, etc. depending on the type.
+  
+  Parameterized Constructor:
+   A constructor that has parameters is known as parameterized constructor. If we want to initialize fields of the class with your own values, then use a parameterized constructor.
+
+4) The three properties of an object are:
+    State: represents the data (value) of an object.
+    Behavior: represents the behavior (functionality) of an object such as deposit, withdraw, etc.
+    Identity: An object identity is typically implemented via a unique ID. The value of the ID is not visible to the external user.
