@@ -1,0 +1,31 @@
+1. Difference between Method Overloading and Mthod Overriding:-
+Method overloading
+Method Overloading is a Compile time polymorphism. 
+In method overloading, more than one method shares the same method name with different signature in the class. 
+In method overloading, return type can or can not be be same, but we must have to change the parameter because in java, we can not achieve the method overloading by changing only the return type of the method.
+It occurs within the class.
+
+Method Overriding
+Method Overriding is a Run time polymorphism. 
+In method overriding, derived class provides the specific implementation of the method that is already provided by the base class or parent class. 
+In method overriding, return type must be same or co-variant (return type may vary in same direction as the derived class).
+It is performed in two classes with inheritance relationship.
+
+
+2. The pre-requisite for method overriding is that the method must have the same name as in the parent class, the method must have the same parameter as in the parent class and there must be an IS-A relationship (inheritance).
+Yes, we can override an abstract method.
+
+
+3. A Java abstract class is a class which cannot be instantiated. The purpose of an abstract class is to function as a base for subclasses.
+No, we can't have an abstract class without an abstract
+method and vice-versa.
+
+
+4.  In Java, a method signature is part of the method declaration. It's the combination of the method name and the parameter list.
+
+Two methods will be treated as overloaded if both follow the mandatory rules below:
+* Both must have the same method name.
+* Both must have different argument lists.
+
+
+5.  No we can't declare one overloaded method as static and another one as non-static in Java.
