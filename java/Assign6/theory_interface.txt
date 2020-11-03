@@ -1,0 +1,13 @@
+1. What is the default nature of a member and data declare in an
+interface.
+=> The methods declared are by default abstract (only method signature, no body), and data declared are final and static.
+
+"""Interface variables are static because Java interfaces cannot be instantiated in their own right; the value of the variable must be assigned in a static context in which no instance exists. The final modifier ensures the value assigned to the interface variable is a true constant that cannot be re-assigned by program code."""
+
+
+2. Can we declare an Interface with “abstract” keyword? 
+=> Yes, but every interface is implicitly abstract. This modifier is obsolete and should not be used in new programs.
+
+
+3. Can interfaces have constructors?
+=> No, interfaces cannot have a constructor in Java.
