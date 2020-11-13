@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from bresenhams_line_drawing import *
 
 # x, y = dda(2, 3, 10, 11)
-x, y = brnhms(2, 2, 12, 8)
+x, y = brnhms(2, 3, 20, 8)
 
 plt.plot(
     x,

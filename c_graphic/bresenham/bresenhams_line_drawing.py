@@ -21,4 +21,5 @@ def brnhms(x0, y0, X, Y):
 if __name__ == "__main__":
     # x, y = brnhms(2, 2, 18, 4)
     x, y = brnhms(2, 2, 12, 8)
+    # x, y = brnhms(2, 3, 20, 8)
     print(f"x={x} and y={y}")
