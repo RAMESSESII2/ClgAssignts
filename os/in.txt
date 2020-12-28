@@ -1,0 +1,22 @@
+//no. of processes
+5
+//no. of resources
+3
+//Allocation matrix
+1 2 1
+1 2 1
+1 2 1
+1 2 1
+1 2 1
+//Max resource matrix
+8 5 1
+1 9 1
+2 4 4
+3 3 9
+4 2 2
+5 0 5
+//New request to allocate to particular process
+//process no.
+3
+//resources like A->0, B->0, C->4
+0 0 4

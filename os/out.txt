@@ -1,0 +1,21 @@
+Initially the process is SAFE.
+this is the sequence followed: 4 2 0 3 1 
+New Request can be granted.
+New availibility
+5 0 1 
+New need matrix
+7 3 0 
+0 7 0 
+1 2 3 
+2 1 4 
+3 0 1 
+Allocation matrix
+1 2 1 
+1 2 1 
+1 2 1 
+1 2 5 
+1 2 1 
+No safe sequence could be found
+
+
+Executed In: 0.000466 seconds
