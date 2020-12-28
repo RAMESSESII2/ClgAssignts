@@ -1,0 +1,15 @@
+1. What do you understand by a child process? 
+Sol=> A child process is an exact replica of its parent process. It runs simulataneously with parent under multi-programming. After creation, child's computation then vary from parent.
+
+2.  Discuss the fork() function. 3. Discuss the significance of pid and ppid of a process.
+Sol=> fork() function creates a chld process identical to the main or parent process. So, this child process has its own process id(pid) and under this child process when we need to find the pid of its parent process, we use ppid i.e., process id of its parent.
+
+3.  When a process is called zombie? How do you demonstrate the existence of zombie process?
+=> A process that has completed in execution but its trace can still be found in the process table is called as a zombie process. It basically happens if the parent hasn't called wait() but the process's resources are deallocated by the OS yet its traces in the process table can still be found.
+The existence of the zombie process can be known by looking into the corresponding task manager of the operating system. For e.g.-in Linux based OS it can be looked by the command "$ps -a".
+
+4. When a process is called orphan? Discuss its difference with a zombie process. How do you demonstrate the existence of orphan process?
+=> An orphan process is a computer process whose parent process has finished or terminated, though it (child process) remains running itself.
+    A zombie process exists when the child process is partially terminated ,i.e., the resources allocated have been deallocated while its traces in process table can still be found while an orphan process happens when the main or parent process is terminated leaving behind the child orphan.
+    Linux and UNIX address this scenario by assigning the init process as the new parent to orphan processes. The init process periodically invokes wait(), thereby allowing the exit status of any orphaned process to be collected and releasing the orphan’s process identifier and process-table entry.
+
