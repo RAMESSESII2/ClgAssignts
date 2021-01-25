@@ -1,0 +1,43 @@
+1. First fit allocation
+  Processes Size  Block No.(1 based indexing)
+      25K            2
+      50K            4
+      100K           Not allocated
+      75K            Not allocated
+
+   Next fit allocation
+  Processes Size  Block No.(1 based indexing)
+      25K            2
+      50K            4
+      100K           Not allocated
+      75K            Not allocated
+
+   Best fit allocation
+  Processes Size  Block No.(1 based indexing)
+      25K            2
+      50K            4
+      100K           Not allocated
+      75K            Not allocated
+
+   Worst fit allocation
+  Processes Size  Block No.(1 based indexing)
+      25K            4
+      50K            2
+      100K           Not allocated
+      75K            Not allocated
+
+    An optimisation could include partitioning 2nd block in to 25k + 50k and 4th block in 100K+75K.
+
+2.  Total possible locations = 2^22
+    since 2 byte addresable, size of memory = 2*2^22 = 2^23 bytes.
+
+3. Let x be the no. of bits required in the address.
+    then 2^n*4 = 16GB = 2^34
+        => 2^n = 2 ^ 32
+        => n = 32 bits.
+
+4. 4MB
+
+5. 2MB
+
+6. 14bits
