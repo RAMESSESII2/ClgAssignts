@@ -1,0 +1,56 @@
+1. 
+Given reference string is 0, 9, 0, 1, 8, 1, 8, 7, 8, 7, 1, 2, 8, 2, 7, 8, 2, 3, 8, 3.
+Three page frames.
+let's say p = page fault and h = hit.
+
+UISNG FIFO
+          ------------------------------------------------------------
+Ref       0, 9, 0, 1, 8, 1, 8, 7, 8, 7, 1, 2, 8, 2, 7, 8, 2, 3, 8, 3
+          -----------------------------------------------------------
+                   1  1  1  1  1  1  1  1  2  2  2  2  2  2  2  2  2
+          -----------------------------------------------------------
+             9  9  9  9  9  9  7  7  7  7  7  7  7  7  7  7  7  8  8
+          -----------------------------------------------------------
+          0  0  0  0  8  8  8  8  8  8  8  8  8  8  8  8  8  3  3  3
+          -----------------------------------------------------------
+          p  p  h  p  p  h  h  p  h  h  h  p  h  h  h  h  h  p  p  h
+So, total page faults = 8
+
+UISNG LRU
+          ------------------------------------------------------------
+Ref       0, 9, 0, 1, 8, 1, 8, 7, 8, 7, 1, 2, 8, 2, 7, 8, 2, 3, 8, 3
+          -----------------------------------------------------------
+                   1  1  1  1  1  1  1  1  1  1  1  7  7  7  3  3  3
+          -----------------------------------------------------------
+             9  9  9  8  8  8  8  8  8  8  2  2  2  2  2  2  2  2  2
+          -----------------------------------------------------------
+          0  0  0  0  0  0  0  7  7  7  7  7  8  8  8  8  8  8  8  8
+          -----------------------------------------------------------
+          p  p  h  p  p  h  h  p  h  h  h  p  p  h  p  h  h  p  h  h
+So, total page faults = 9
+
+
+UISNG Optimal Replacement
+          ------------------------------------------------------------
+Ref       0, 9, 0, 1, 8, 1, 8, 7, 8, 7, 1, 2, 8, 2, 7, 8, 2, 3, 8, 3
+          -----------------------------------------------------------
+                   1  1  1  1  1  1  1  1  2  2  2  2  2  2  2  2  2
+          -----------------------------------------------------------
+             9  9  9  9  9  9  7  7  7  7  7  7  7  7  7  7  3  3  3
+          -----------------------------------------------------------
+          0  0  0  0  8  8  8  8  8  8  8  8  8  8  8  8  8  8  8  8
+          -----------------------------------------------------------
+          p  p  h  p  p  h  h  p  h  h  h  p  h  h  h  h  h  p  h  h
+
+So, total page faults = 7
+
+2.
+It is a page replacement algorithm. This algorithm removes a page at random from the lowest numbered non-empty class. Implicit in this algorithm is that it is better to remove a modified page that has not been referenced in atleast one clock tick than a clean page that is in heavy use.
+
+It is easy to understand, moderately efficient to implement and gives a performance that while certainly not optimal, may be adequate. When page is modified, a modified bit is set. When a page needs to be replaced, the Operating System divides pages into 4 classes.
+
+0:- Not Referenced, Not Modified
+1:- Not Referenced, Modified
+2:- Referenced, Not Modified
+3:- Referenced, Modified
+Out of above 4 categories, NRU will replace a Not Referenced, Not Modified page, if such page exists. Note that this algorithm implies that a Modified but Not Referenced is less important than a Not Modified and Referenced.
