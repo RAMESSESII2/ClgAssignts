@@ -1,0 +1,15 @@
+../temp.c
+../Os_lab/assign28_12/orphan_process.c
+../Os_lab/assign28_12/parent_child_processes/child_process.c
+../Os_lab/assign28_12/parent_child_processes/fork.c
+../Os_lab/assign28_12/parent_child_processes/child_process0.c
+../Os_lab/assign28_12/thread/thread.c
+../Os_lab/assign28_12/thread/thread2.c
+../Os_lab/assign28_12/zombie.c
+../Os_lab/processThreadsOsLab/thread.c
+../Os_lab/processThreadsOsLab/parent_and_zombie.c
+../Os_lab/processThreadsOsLab/child_process.c
+../Os_lab/processThreadsOsLab/fork.c
+../Os_lab/processThreadsOsLab/thread2.c
+../Os_lab/processThreadsOsLab/child_process0.c
+../Os_lab/processThreadsOsLab/orphan_process.c
