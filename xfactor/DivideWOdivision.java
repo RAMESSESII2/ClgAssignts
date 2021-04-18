@@ -1,10 +1,7 @@
 import java.util.Scanner;
 import java.lang.*;
 class DivideWOdivision{
-  public static void main(String args[]){
-    Scanner in = new Scanner(System.in);
-    int num = in.nextInt();
-    int den = in.nextInt();
+  private static void divide(int num, int den){
     int sign = 1;
     if( num < 0 || den < 0){
       sign = -1;
@@ -25,5 +22,12 @@ class DivideWOdivision{
     }
     System.out.println("Quotient is : " + sign*quotient);
     System.out.println("Remainder is : " + remainder);
+
+  }
+  public static void main(String args[]){
+    Scanner in = new Scanner(System.in);
+    int num = in.nextInt();
+    int den = in.nextInt();
+    divide(num, den);
   }
 }
