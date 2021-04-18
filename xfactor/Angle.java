@@ -2,10 +2,10 @@ import java.util.Scanner;
 import java.lang.*;
 class Angle{
   public double findAngle(int hr, int min){
-    if( min == 0) {
-      // System.out.println("Angle is : 0");
-      return 0;
-    }
+    // if( min == 0) {
+    //   // System.out.println("Angle is : 0");
+    //   return 0;
+    // }
     //angle that hour hand makes with minute hand
     double diff = (hr*5.0 - min)*6.0;
     //angle between floor hour hand and minute elapsed:
