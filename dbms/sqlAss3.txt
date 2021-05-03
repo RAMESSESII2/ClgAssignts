@@ -1,0 +1,93 @@
+
+Perform the following queries using DUAL:
+
+(Currently USING SQLITE3 )---
+
+ Display the current DATE and TIME.
+=> SELECT datetime();
+2021-05-03 09:25:48
+
+ Multiply 2 by 2 .
+=> select 2*2;
+4
+
+ Find the absolute value of -15
+=> select abs(-15);
+15
+
+ Calculate the square root of 5.
+=>SELECT sqrt(5);
+2.2360679775
+
+ Round off 15.19 to one decimal point:
+=>  SELECT ROUND(15.19,1);
+15.2
+
+ Display the name &quot; IVAN BAYROSS&quot; in LOWERCASE.
+=> select lower('IVAN BAYROSS');
+ivan bayross
+
+ Display the name &quot; IVAN BAYROSS&quot; in UPPERCASE.
+=>select upper('IVAN BAYROSS');
+IVAN BAYROSS
+
+ Add 5 months to the present date and print the output.
+=> SELECT DATE(date(), '+5 months');
+2021-10-03
+
+Display the number of months between ‘02-JAN-01'; and '02-JUL-01;
+=>select MONTHS_BETWEEN('02-Jan-01', '02-July-01');
+6
+
+ Print the system date in the particular format ‘DD/MMIYYYY&#39;
+=> SELECT strftime('%d/%m/%Y', date());
+03/05/2021
+
+
+Create the following table and insert 10 rows in the table:
+. EMP (EMPNO , ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPT _NAME)
+ EMPNO must be between 7000 and 8000
+ ENAME must not exceed 10 characters
+ MGR is managers EMPNO
+ COMM (commission) must be under 1500 and defaults to O. Only who works as salesman
+gets certain commission.
+ DEPT _NAME is the name of the department in which the employees works.
+=>>>
+CREATE TABLE EMP
+(
+EMPNO number(5) primary key,
+ENAME varchar(10),
+JOB varchar(255),
+MGR int,
+HIREDATE date,
+SAL bigint,
+COMM bigint DEFAULT 0,
+DEPT_NAME varchar(255),
+check (COMM<=1500),
+check (MGR BETWEEN 7000 AND 8000),
+CONSTRAINT CK_EMP CHECK ( NOT(JOB <> 'salesman' AND COMM > 0)));
+
+
+Write necessary SQL queries with corresponding Outputs for the following:
+Ans1. select * from emp where substr(ename, 2, 1) like 'i';
+
+Ans2:SELECT * FROM EMP where JOB not like 'managers';
+
+Ans3:SELECT MAX(SAL) AS MAXIMUM,MIN(SAL) AS MINIMUM,SUM(SAL) AS TOTAL,AVG(SAL) AS AVERAGE FROM EMP;
+
+Ans4:select job, max(sal) as MAX, min(sal) as MIN, sum(sal) as Total, avg(sal) as Average from emp1 group by(job);
+
+Ans5:SELECT COUNT(JOB) FROM EMP where job='managers';
+
+Ans6:SELECT * FROM EMP where HIREDATE>='1980-01-01';
+
+Ans7:select MAX(SAL) from emp where job='salesman';
+
+ans8:select MIN(SAL) from emp where job='clerk';
+
+ans9:select dept_name from emp where ename='Solly';
+
+ans10:select dept_name FROM EMP where SAL=(SELECT MAX(SAL) FROM EMP);
+
+ans11:SELECT ENAME FROM EMP where  SAL>(SELECT SAL FROM EMP where ENAME='Allen');
+
