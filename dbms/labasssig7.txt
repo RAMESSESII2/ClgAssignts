@@ -1,0 +1,119 @@
+Satyam Bhardwaj
+7, CSE, 3rd year
+			
+A
+CREATE TABLE actor(
+act_id int,
+act_name varchar2(20),
+act_gender char not null,
+primary key(act_id));
+
+CREATE TABLE director(
+dir_id int,
+dir_name varchar2(20),
+dir_phone number(15),
+primary key(dir_id));
+
+CREATE TABLE movies(
+mov_id int,
+mov_title varchar2(40),
+mov_year date,
+mov_lang varchar2(20),
+dir_id int references director(dir_id),
+primary key(mov_id));
+
+CREATE TABLE movie_cast(
+act_id int references actor(act_id),
+mov_id int references movies(mov_id),
+role varchar2(20),
+primary key(act_id, mov_id));
+
+CREATE TABLE rating(
+mov_id references movies(mov_id),
+rev_start int,
+primary key(mov_id));
+
+1.select mov_title from movies where dir_id in (select dir_id from director where dir_name = 'Hitchcock');
+Psycho
+The Birds
+
+
+2.sqlite> SELECT mov_title FROM movies
+   ...> WHERE mov_id IN (
+   ...> SELECT mov_id 
+   ...> FROM movie_cast 
+   ...> WHERE act_id IN (
+   ...> SELECT act_id 
+   ...> FROM actor 
+   ...> WHERE act_id IN (
+   ...> SELECT act_id 
+   ...> FROM movie_cast GROUP BY act_id 
+   ...> HAVING COUNT(act_id)>1)));
+Psycho
+Avatar
+
+3.SELECT act_name, mov_title, mov_year
+   ...> FROM actor
+   ...> JOIN movie_cast 
+   ...> ON actor.act_id=movie_cast.act_id
+   ...> JOIN movies
+   ...> ON movie_cast.mov_id=movies.mov_id
+   ...> WHERE mov_year  BETWEEN 2000 and 2015;
+Anthony|Avatar|2010
+
+4.sqlite> SELECT mov_title, MAX(rev_start)
+   ...> FROM movies
+   ...> INNER JOIN rating USING(mov_id)
+   ...> GROUP BY mov_title 
+   ...> HAVING MAX(rev_start)>0
+   ...> ORDER BY mov_title;
+Avatar|9
+Inception|9
+Psycho|9
+The Birds|8
+
+5.update rating set rev_start= 5 where mov_id in (select mov_id from movies where dir_id = (select dir_id from director where dir_name = 'Steven Spielberg'));
+
+
+
+B
+CREATE TABLE salesman(
+salesman_id int,
+name varchar2(20),
+city varchar2(20),
+commission int,
+primary key(salesman_id));
+
+CREATE TABLE customer(
+customer_id int,
+cust_name varchar2(20),
+city varchar2(20),
+grade int,
+salesman_id int references salesman(salesman_id),
+primary key(customer_id));
+
+CREATE TABLE orders(
+ord_no int,
+purchase_amt int,
+ord_date date,
+customer_id int references customer(customer_id),
+salesman_id int references salesman(salesman_id),
+primary key(ord_no));
+
+
+
+1. SELECT grade, COUNT (*) FROM customer GROUP BY grade HAVING grade > (SELECT AVG(grade) FROM customer WHERE city = 'Bangalore');
+
+2.SELECT salesman_id, name FROM salesman a WHERE 1 < (SELECT COUNT(*) FROM customer WHERE salesman_id=a.salesman_id);
+
+3.  SELECT S.SALESMAN_ID, S.NAME, C.CUST_NAME, S.COMMISSION
+   ...> FROM SALESMAN S, CUSTOMER C
+   ...> WHERE S.CITY=C.CITY
+   ...> UNION
+   ...> SELECT S.SALESMAN_ID,S.NAME,'NO MATCH',S.COMMISSION
+   ...> FROM SALESMAN S
+   ...> WHERE CITY NOT IN 
+   ...> (SELECT CITY
+   ...> FROM CUSTOMER);
+   
+4. delete from salesman where salesman_id = 1000 cascade constraint;
